@@ -36,6 +36,7 @@ public class SumDemo {
 	// return r;
 	// }
 
+	//jdk 内置的函数式接口
 	public static int add(int[] nums, Predicate<Integer> p) {
 		int r = 0;
 		for (int num : nums) {
