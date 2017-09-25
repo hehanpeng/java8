@@ -29,6 +29,7 @@ class Dept implements Comparable<Dept> {
 * 顺序不能保证
 * HashSet 不保证顺序
 * LinkedHashSet 可以维护顺序
+* TreeSet
 * */
 public class SetDemo {
 
@@ -56,7 +57,7 @@ public class SetDemo {
         names2.add("Rose");
         names2.forEach(System.out::println);
 
-        TreeSet<String> names3 = new TreeSet<String>();//间接实现SortedSet接口，---存在排序
+        TreeSet<String> names3 = new TreeSet<String>();//间接实现SortedSet接口，---存在排序 2种方式
         names3.add("Tom");
         names3.add("Jack");
         names3.add("Rose");
@@ -69,18 +70,19 @@ public class SetDemo {
         Dept d5 = new Dept();
         d5.name = "dept3";
 
-        TreeSet<Dept> dept2 = new TreeSet<>(new MyDeptComparator());
+        TreeSet<Dept> dept2 = new TreeSet<>(new MyDeptComparator());//2.传入比较器
         dept2.add(d5);
         dept2.add(d4);
         dept2.add(d3);
-        dept2.forEach(dept -> System.out.println(dept.name));
+        dept2.forEach(dept -> System.out.println(dept.name));//解决报错 ---1.自然排序 需要实现Comparable接口 就可以实现排序
     }
 
+    /*2.实现Comparable比较器接口*/
     static class MyDeptComparator implements Comparator<Dept> {
 
         @Override
         public int compare(Dept o1, Dept o2) {
-            return -o1.name.compareTo(o2.name);
+            return -o1.name.compareTo(o2.name);//使用负号 反转顺序
         }
 
     }
