@@ -21,7 +21,13 @@ import java.util.Set;
 * */
 public class MapDemo {
     public static void main(String[] args) {
-        Map<String, String> m1 = new HashMap<String, String>();
+        Map<String, String> m1 = new HashMap<String, String>();//HashMap  不保证顺序，使用LinkedHashMap 可以维护顺序
+        /*
+        * SortedMap 接口
+        * 以有序的方式保存条目
+        * 排序规则基于键的自然排序或Comparator 实例
+        * TreeMap类实现了该接口
+        * */
         m1.put("a", "Acde");
         m1.put(null, "Bcdfe");//允许一个null 键和多个null值
         m1.put("b", "Bcdf1e");
