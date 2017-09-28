@@ -50,5 +50,4 @@ public class StreamDemo3 {
 		}
 		System.out.println(sum);
 	}
-
 }
