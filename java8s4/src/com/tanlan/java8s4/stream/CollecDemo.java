@@ -28,13 +28,14 @@ public class CollecDemo {
                 .map(Person::getName)
                 .collect(Collectors.toCollection(TreeSet::new));
         System.out.println(names3);
+
         long num = Person.persons().stream().map(Person::getName)
-                .collect(Collectors.counting());
+                .collect(Collectors.counting());//计数  计算多少个元素
         System.out.println(num);
 
         Map<Integer, String> map1 = Person.persons().stream()
                 .collect(Collectors.toMap(Person::getId, Person::getName));
-        System.out.println(map1);
+        System.out.println(map1);//形成映射
 
         String s = Person.persons().stream().map(Person::getName)
                 .collect(Collectors.joining(","));
